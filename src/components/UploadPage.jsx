@@ -25,7 +25,7 @@ const UploadPage = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8080/logEnchanceApi/uploadzip', formData, {
+      const response = await axios.post('${process.env.REACT_APP_API_BASE_URL}/logEnchanceApi/uploadzip', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       navigate('/diff', { state: { results: response.data } });
